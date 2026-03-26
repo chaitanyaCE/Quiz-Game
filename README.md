@@ -30,8 +30,7 @@ Since this is a front-end only application, you don't need to install any depend
 
 Clone the repository:
 
-git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
-
+git clone (https://github.com/chaitanyaCE/Quiz-Game)
 
 Navigate to the project directory:
 
