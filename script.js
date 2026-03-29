@@ -13,6 +13,7 @@ const maxScoreSpan = document.getElementById("max-score");
 const resultMessage = document.getElementById("result-message");
 const restartButton = document.getElementById("restart-btn");
 const progressBar = document.getElementById("progress");
+const highScoreSpan = document.getElementById("high-score");
 
 const quizQuestions = [
   {
@@ -20,7 +21,7 @@ const quizQuestions = [
     answers: [
       { text: "1956-1960", isCorrect: false },
       { text: "1945-1949", isCorrect: false },
-      { text: "1941-1945", isCorrect: true },
+      { text: "1914-1918", isCorrect: true },
       { text: "1953-1957", isCorrect: false },
     ],
   },
@@ -36,7 +37,7 @@ const quizQuestions = [
   },
   {
     question:
-      "Which one of the following programming languages is considered a styling language for web development?",
+      "Which one of the following programming languages is considered a styling language for front-end web development?",
     answers: [
       { text: "CSS", isCorrect: true },
       { text: "Python", isCorrect: false },
@@ -62,15 +63,190 @@ const quizQuestions = [
       { text: "^", isCorrect: false },
     ],
   },
+  {
+    question: "What is a variable in programming?",
+    answers: [
+      { text: "A mathematical equation", isCorrect: false },
+      { text: "A container for storing data values", isCorrect: true },
+      { text: "A type of computer hardware", isCorrect: false },
+      { text: "An error in the code", isCorrect: false },
+    ],
+  },
+  {
+    question:
+      "What is the process of finding and fixing errors in code called?",
+    answers: [
+      { text: "Compiling", isCorrect: false },
+      { text: "Executing", isCorrect: false },
+      { text: "Debugging", isCorrect: true },
+      { text: "Deploying", isCorrect: false },
+    ],
+  },
+  {
+    question: "In programming, what is a boolean?",
+    answers: [
+      { text: "A data type that can only be true or false", isCorrect: true },
+      { text: "A list of text strings", isCorrect: false },
+      { text: "A whole number", isCorrect: false },
+      { text: "A function that returns a decimal", isCorrect: false },
+    ],
+  },
+  {
+    question: "What is an algorithm?",
+    answers: [
+      { text: "A physical component of a computer", isCorrect: false },
+      { text: "A specific programming language", isCorrect: false },
+      {
+        text: "A set of step-by-step instructions to solve a problem",
+        isCorrect: true,
+      },
+      { text: "A type of web browser", isCorrect: false },
+    ],
+  },
+  {
+    question: "What is a 'bug' in software development?",
+    answers: [
+      { text: "A virus that attacks the computer", isCorrect: false },
+      { text: "A new feature requested by a user", isCorrect: false },
+      {
+        text: "An error, flaw, or fault in a computer program",
+        isCorrect: true,
+      },
+      { text: "A tool used to write code", isCorrect: false },
+    ],
+  },
+  {
+    question: "Which of the following is considered a 'frontend' technology?",
+    answers: [
+      { text: "JavaScript", isCorrect: true },
+      { text: "SQL", isCorrect: false },
+      { text: "Python", isCorrect: false },
+      { text: "Java", isCorrect: false },
+    ],
+  },
+  {
+    question: "Which HTTP status code typically means 'Not Found'?",
+    answers: [
+      { text: "301", isCorrect: false },
+      { text: "404", isCorrect: true },
+      { text: "200", isCorrect: false },
+      { text: "104", isCorrect: false },
+    ],
+  },
+  {
+    question: "What does UI stand for?",
+    answers: [
+      { text: "Universal Integration", isCorrect: false },
+      { text: "Unified Intelligence", isCorrect: false },
+      { text: "User Identification", isCorrect: false },
+      { text: "User Interface", isCorrect: true },
+    ],
+  },
+  {
+    question:
+      "Which of the following is the most widely used version control system?",
+    answers: [
+      { text: "SVN", isCorrect: false },
+      { text: "Mercurial", isCorrect: false },
+      { text: "Git", isCorrect: true },
+      { text: "Docker", isCorrect: false },
+    ],
+  },
+  {
+    question: "What does API stand for?",
+    answers: [
+      { text: "Application Programming Interface", isCorrect: true },
+      { text: "Advanced Program Integration", isCorrect: false },
+      { text: "Application Process Indicator", isCorrect: false },
+      { text: "Automated Protocol Interface", isCorrect: false },
+    ],
+  },
+  {
+    question: "What does 'deployment' mean in software development?",
+    answers: [
+      { text: "Planning the architecture of the software", isCorrect: false },
+      {
+        text: "Pushing the finished code to a live environment for users to access",
+        isCorrect: true,
+      },
+      { text: "Writing the initial lines of code", isCorrect: false },
+      { text: "Deleting old files from a database", isCorrect: false },
+    ],
+  },
+  {
+    question: "What is a server?",
+    answers: [
+      { text: "The screen where the user views a website", isCorrect: false },
+      {
+        text: "A computer or system that provides resources, data, or services to other computers",
+        isCorrect: true,
+      },
+      {
+        text: "The cable that connects a computer to the internet",
+        isCorrect: false,
+      },
+      { text: "A type of keyboard used by developers", isCorrect: false },
+    ],
+  },
+  {
+    question: "What does 'open-source' mean in software?",
+    answers: [
+      { text: "The software is free but cannot be changed", isCorrect: false },
+      {
+        text: "The source code is publicly available and can be modified",
+        isCorrect: true,
+      },
+      {
+        text: "The software can only be used on open networks",
+        isCorrect: false,
+      },
+      { text: "The code is locked and hidden from users", isCorrect: false },
+    ],
+  },
+  {
+    question: "What is the primary purpose of a database?",
+    answers: [
+      { text: "To design the visual layout of a website", isCorrect: false },
+      { text: "To store, organize, and manage data", isCorrect: true },
+      { text: "To compile code into an executable file", isCorrect: false },
+      { text: "To protect a computer from malware", isCorrect: false },
+    ],
+  },
+  {
+    question:
+      "In a software repository, what is the primary purpose of a 'README.md' file?",
+    answers: [
+      { text: "To execute the main application code", isCorrect: false },
+      {
+        text: "To define the visual styling and layout of a web page",
+        isCorrect: false,
+      },
+      {
+        text: "To provide essential information, instructions, & documentation about the project",
+        isCorrect: true,
+      },
+      {
+        text: "To securely store encrypted user passwords and database keys",
+        isCorrect: false,
+      },
+    ],
+  },
 ];
 
 //QUIZ STATE VARS
 let currentQuestionIndex = 0;
 let score = 0;
 let answersDisabled = false;
+let highScore = 0;
 
-totalQuestionsSpan.textContent = quizQuestions.length;
-maxScoreSpan.textContent = quizQuestions.length;
+let shuffledQuestions = [];
+
+function shuffledArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
 
 //event listeners
 startButton.addEventListener("click", startQuiz);
@@ -82,8 +258,19 @@ function startQuiz() {
   score = 0;
   scoreSpan.textContent = score;
 
+  shuffledQuestions = [...quizQuestions];
+  shuffledArray(shuffledQuestions);
+  shuffledQuestions = shuffledQuestions.slice(0, 10);
+
   startScreen.classList.remove("active");
   quizScreen.classList.add("active");
+
+  const savedHighScore = localStorage.getItem("high-score");
+  if (savedHighScore !== null) {
+    highScore = parseInt(savedHighScore);
+  }
+
+  highScoreSpan.textContent = highScore;
 
   showQuestion();
 }
@@ -92,17 +279,20 @@ function showQuestion() {
   //reset state
   answersDisabled = false;
 
-  const currentQuestion = quizQuestions[currentQuestionIndex];
+  const currentQuestion = shuffledQuestions[currentQuestionIndex];
+  const answers = [...currentQuestion.answers];
+  shuffledArray(answers);
   currentQuestionSpan.textContent = currentQuestionIndex + 1;
 
-  const progressPercent = (currentQuestionIndex / quizQuestions.length) * 100;
+  const progressPercent =
+    (currentQuestionIndex / shuffledQuestions.length) * 100;
   progressBar.style.width = progressPercent + "%";
 
   questionText.textContent = currentQuestion.question;
 
   answersContainer.innerHTML = "";
 
-  currentQuestion.answers.forEach((answer) => {
+  answers.forEach((answer) => {
     const button = document.createElement("button");
     button.textContent = answer.text;
     button.classList.add("answer-btn");
@@ -118,7 +308,7 @@ function showQuestion() {
 function selectAnswer(event) {
   if (answersDisabled) return;
 
-  answersDisbled = true;
+  answersDisabled = true;
 
   const selectedButton = event.target;
   const correct = selectedButton.dataset.isCorrect === "true";
@@ -139,7 +329,7 @@ function selectAnswer(event) {
   setTimeout(() => {
     currentQuestionIndex++;
 
-    if (currentQuestionIndex < quizQuestions.length) {
+    if (currentQuestionIndex < shuffledQuestions.length) {
       showQuestion();
     } else {
       showResult();
@@ -153,7 +343,13 @@ function showResult() {
 
   finalScoreSpan.textContent = score;
 
-  const percentage = (score / quizQuestions.length) * 100;
+  if (score > highScore) {
+    highScore = score;
+    localStorage.setItem("high-score", highScore);
+  }
+  highScoreSpan.textContent = highScore;
+
+  const percentage = (score / shuffledQuestions.length) * 100;
   if (percentage === 100) {
     resultMessage.textContent = "Perfect! You're a genuis!";
   } else if (percentage >= 80) {
