@@ -13,7 +13,7 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 1rem;
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 #container{
@@ -123,6 +123,14 @@ body {
 }
 
 /*RESULT SCREEN*/
+#result-screen {
+    width: 600px;
+    height: 400px;
+    font-size: 1.5rem;
+    text-align: center;
+    justify-content: center;
+    padding: 60px;
+}
 
 #result-screen h1 {
     color: #e86a33;
@@ -136,17 +144,17 @@ body {
     margin-bottom: 30px;
 }
 
-.results.info p {
+.result-score p {
     font-size: 1.2rem;
     color: #333;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 #result-message {
-    font-size: 1.5rem;
+    font-size: 1.9rem;
     color: #e86a33;
     font-weight: 600;
-    margin-top: 10px;
+    margin-top: 24px;
 }
 
 #restart-btn {
